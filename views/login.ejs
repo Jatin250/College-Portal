@@ -32,7 +32,7 @@
 
                 <!-- Column-2 -->
                 <div class="col-lg-6 bglogin p-4">
-                    <form>
+                    <form action="/verifyLogin" method="post">
                         <!-- logo -->
                         <center>
                             <img class="mb-4 rounded-circle" src="./Images/logo.jpeg" alt="logo" width="20%"
@@ -48,34 +48,44 @@
                             </div>
                             <%}%>
 
-                        <!-- Email -->
-                        <div class="row mb-3">
-                            <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">Email
-                            </div>
-                            <div class="col-lg-10">
-                                <input class="form-control" type="email" placeholder="name@example.com" required>
-                            </div>
-                        </div>
+                                <% if(msg1.length> 0){ %>
+                                    <div class="alert alert-danger">
+                                        <%= msg1 %>
+                                    </div>
+                                    <%}%>
 
-                        <!-- Password -->
-                        <div class="row mb-5">
-                            <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
-                                Password</div>
-                            <div class="col-lg-10">
-                                <input class="form-control" type="password" required>
-                            </div>
-                        </div>
+                                        <!-- Email -->
+                                        <div class="row mb-3">
+                                            <div
+                                                class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
+                                                Email
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <input name="email" class="form-control" type="email"
+                                                    placeholder="name@example.com" required>
+                                            </div>
+                                        </div>
 
-                        <!-- Button (Login) -->
-                        <center>
-                            <button class="btn btn-primary mb-5 btn-lg">Login</button>
-                        </center>
+                                        <!-- Password -->
+                                        <div class="row mb-5">
+                                            <div
+                                                class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
+                                                Password</div>
+                                            <div class="col-lg-10">
+                                                <input name="password" class="form-control" type="password" required>
+                                            </div>
+                                        </div>
 
-                        <!-- Register Now -->
-                        <center>
-                            <p class="text-uppercase fw-light">Don't have an account? &nbsp;<a
-                                    href="./register">Register Now</a></p>
-                        </center>
+                                        <!-- Button (Login) -->
+                                        <center>
+                                            <button type="submit" class="btn btn-primary mb-5 btn-lg">Login</button>
+                                        </center>
+
+                                        <!-- Register Now -->
+                                        <center>
+                                            <p class="text-uppercase fw-light">Don't have an account? &nbsp;<a
+                                                    href="./register">Register Now</a></p>
+                                        </center>
                     </form>
                 </div>
                 <!-- End Column-2 -->

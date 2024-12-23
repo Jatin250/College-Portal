@@ -26,7 +26,10 @@ class FrontController {
   };
   static login = async (req, res) => {
     try {
-      res.render("login", { msg: req.flash("success") });
+      res.render("login", {
+        msg: req.flash("success"),
+        msg1: req.flash("error"),
+      });
     } catch (error) {
       console.log(error);
     }
@@ -89,6 +92,36 @@ class FrontController {
       res.redirect("/"); //route **web
     } catch {
       console.log("error");
+    }
+  };
+
+  //verify Login
+  static verifyLogin = async (req, res) => {
+    try {
+      // console.log(req.body);
+      const { email, password } = req.body;
+
+      // if (!email || !password) {
+      //   req.flash("error", "All fields Are Required.");
+      //   return res.redirect("/");
+      // }
+      const user = await UserModel.findOne({ email });
+      // console.log(user)
+      if (!user) {
+        req.flash("error", "You Are not Register User");
+        return res.redirect("/");
+      } else {
+        const isMatch = await bcrypt.compare(password, user.password);
+        // console.log(isMatch)
+        if (isMatch) {
+          return res.redirect("/home");
+        } else {
+          req.flash("error", "Email or Password does't Match");
+          return res.redirect("/");
+        }
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 }

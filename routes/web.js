@@ -9,5 +9,6 @@ route.get("/about", FrontController.about);
 route.get("/contact", FrontController.contact);
 route.get("/register", FrontController.register);
 route.post("/userinsert", FrontController.userinsert);
+route.post("/verifyLogin", FrontController.verifyLogin);
 
 module.exports = route;
