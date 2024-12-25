@@ -1,6 +1,7 @@
 const UserModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
+const jwt = require("jsonwebtoken");
 
 // configuraton Setup
 cloudinary.config({
@@ -114,12 +115,27 @@ class FrontController {
         const isMatch = await bcrypt.compare(password, user.password);
         // console.log(isMatch)
         if (isMatch) {
+          const token = jwt.sign(
+            { ID: user.id },
+            "smjdhc7w8e2wufwoivr8934wr235w"
+          );
+          // console.log(token);
+          res.cookie("token", token);
           return res.redirect("/home");
         } else {
           req.flash("error", "Email or Password does't Match");
           return res.redirect("/");
         }
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // logout
+  static logout = async (req, res) => {
+    try {
+      res.redirect("/");
     } catch (error) {
       console.log(error);
     }
