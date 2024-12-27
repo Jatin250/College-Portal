@@ -13,14 +13,16 @@ cloudinary.config({
 class FrontController {
   static home = async (req, res) => {
     try {
-      res.render("home");
+      const { name, image } = req.udata;
+      res.render("home", { n: name, i: image });
     } catch (error) {
       console.log(error);
     }
   };
   static about = async (req, res) => {
     try {
-      res.render("about");
+      const { name, image } = req.udata;
+      res.render("about", { n: name, i: image });
     } catch (error) {
       console.log(error);
     }
@@ -37,7 +39,8 @@ class FrontController {
   };
   static contact = async (req, res) => {
     try {
-      res.render("contact");
+      const { name, image } = req.udata;
+      res.render("contact", { n: name, i: image });
     } catch (error) {
       console.log(error);
     }

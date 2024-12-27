@@ -4,6 +4,10 @@ const port = 3000;
 const web = require("./routes/web");
 const connectDb = require("./database/connectDb");
 const fileUpload = require("express-fileupload");
+const cookieParser = require("cookie-parser");
+
+// token get cookie
+app.use(cookieParser());
 
 // image upload
 app.use(fileUpload({ useTempFiles: true }));
