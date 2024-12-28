@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
 const jwt = require("jsonwebtoken");
 
-// configuraton Setup
+// configuration Setup
 cloudinary.config({
   cloud_name: "dkpr89ars",
   api_key: "525114599641279",
