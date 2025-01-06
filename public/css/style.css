@@ -6,7 +6,7 @@ body{
     background: #f7f0bd !important;
 }
 
-::placeholder{
+/* ::placeholder{
     color: gray !important;
     font-weight: lighter;
 }
@@ -17,7 +17,7 @@ label{
 
 button{
     background: #2a1a6f !important;
-}
+} */
 
 /* ---------------------------------------------------------------
                             #navbar
