@@ -1,5 +1,49 @@
 <%- include("../header.ejs") %>
 
-    <h1>Course Display</h1>
+    <h1 class="mt-5 text-center">Course Display</h1>
+    <div class="container mt-5">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr class="bg-info">
+                    <th colspan="6">Display Course</th>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% c.forEach((item)=>{%>
+                    <tr>
+                        <td>
+                            <%= item.id %>
+                        </td>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.email %>
+                        </td>
+                        <td>
+                            <%= item.course %>
+                        </td>
+                        <td>
+                            <%= item.status %>
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-info">View</a>
+                            <a href="" class="btn btn-success">Edit</a>
+                            <a href="" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <%})%>
+            </tbody>
+        </table>
+    </div>
+    <!-- container end -->
 
     <%- include("../footer.ejs") %>

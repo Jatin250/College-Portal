@@ -2,6 +2,7 @@ const UserModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
 const jwt = require("jsonwebtoken");
+const CourseModel = require("../models/course");
 
 // configuration Setup
 cloudinary.config({
@@ -13,8 +14,19 @@ cloudinary.config({
 class FrontController {
   static home = async (req, res) => {
     try {
-      const { name, image, email } = req.udata;
-      res.render("home", { n: name, i: image, e: email });
+      const { name, image, email, id } = req.udata;
+      const btech = await CourseModel.findOne({ user_id: id, course: "btech" });
+      const bca = await CourseModel.findOne({ user_id: id, course: "bca" });
+      const mca = await CourseModel.findOne({ user_id: id, course: "mca" });
+      // console.log(btech)
+      res.render("home", {
+        n: name,
+        i: image,
+        e: email,
+        btech: btech,
+        bca: bca,
+        mca: mca,
+      });
     } catch (error) {
       console.log(error);
     }

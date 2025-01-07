@@ -93,8 +93,14 @@
                             <div class="card-body text-center">
                                 <h2>B.Tech</h2>
                                 <p class="card-text">B.Tech is a professional undergraduate engineering degree</p>
-                                <button data-bs-toggle="modal" data-bs-target="#btech" type="button"
-                                    class="btn btn-info">Register</button>
+
+                                <% if(btech){ %>
+                                    <a href="/courseDisplay" class="btn btn-success">Display Course</a>
+                                    <%}else{%>
+                                        <button data-bs-toggle="modal" data-bs-target="#btech" type="button"
+                                            class="btn btn-info">Register</button>
+                                        <%}%>
+
                             </div>
                         </div>
                     </div>
@@ -106,8 +112,12 @@
                             <div class="card-body text-center">
                                 <h2>BCA</h2>
                                 <p class="card-text">BCA is a three-year Bachelor's Degree in Computer Application</p>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#bca"
-                                    class="btn btn-info">Register</button>
+                                <% if(bca){ %>
+                                    <a href="/courseDisplay" class="btn btn-success">Display Course</a>
+                                    <%}else{%>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#bca"
+                                            class="btn btn-info">Register</button>
+                                        <%}%>
                             </div>
                         </div>
                     </div>
@@ -120,8 +130,13 @@
                                 <h2>MCA</h2>
                                 <p class="card-text">MCA is a professional post-graduation degree in Computer
                                     Application</p>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#mca"
-                                    class="btn btn-info">Register</button>
+                                <% if(mca){ %>
+                                    <a href="/courseDisplay" class="btn btn-success">Display Course</a>
+                                    <%}else{%>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#mca"
+                                            class="btn btn-info">Register</button>
+                                        <%}%>
+
                             </div>
                         </div>
                     </div>
