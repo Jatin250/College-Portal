@@ -17,5 +17,8 @@ route.get("/logout", FrontController.logout);
 // course
 route.post("/course_insert", checkAuth, CourseController.createCourse);
 route.get("/courseDisplay", checkAuth, CourseController.courseDisplay);
+route.get("/ViewCourse/:id", checkAuth, CourseController.ViewCourse);
+route.get("/EditCourse/:id", checkAuth, CourseController.EditCourse);
+route.get("/DeleteCourse/:id", checkAuth, CourseController.DeleteCourse);
 
 module.exports = route;

@@ -35,6 +35,42 @@ class CourseController {
       console.log(error);
     }
   };
+  static ViewCourse = async (req, res) => {
+    try {
+      const { name, image } = req.udata;
+      const id = req.params.id;
+      // console.log(id);
+      const course = await CourseModel.findById(id);
+      // console.log(course);
+      res.render("course/view", { n: name, i: image, c: course });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  static EditCourse = async (req, res) => {
+    try {
+      const { name, image } = req.udata;
+      const id = req.params.id;
+      // console.log(id);
+      const course = await CourseModel.findById(id);
+      // console.log(course);
+      res.render("course/view", { n: name, i: image, c: course });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  static DeleteCourse = async (req, res) => {
+    try {
+      const { name, image } = req.udata;
+      const id = req.params.id;
+      // console.log(id);
+      const course = await CourseModel.findByIdAndDelete(id);
+      // console.log(course);
+      res.render("course/view", { n: name, i: image, c: course });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 module.exports = CourseController;
