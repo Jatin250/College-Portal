@@ -71,7 +71,8 @@ class CourseController {
       // console.log(id);
       const course = await CourseModel.findByIdAndDelete(id);
       // console.log(course);
-      res.render("course/view", { n: name, i: image, c: course });
+      // res.render("course/view", { n: name, i: image, c: course });
+      res.redirect("/courseDisplay");
     } catch (error) {
       console.log(error);
     }
