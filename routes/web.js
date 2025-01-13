@@ -14,6 +14,11 @@ route.post("/userinsert", FrontController.userinsert);
 route.post("/verifyLogin", FrontController.verifyLogin);
 route.get("/logout", FrontController.logout);
 
+// profile
+route.get("/profile", checkAuth, FrontController.profile);
+route.post("/changePassword", checkAuth, FrontController.changePassword);
+route.post("/updateProfile", checkAuth, FrontController.updateProfile);
+
 // course
 route.post("/course_insert", checkAuth, CourseController.createCourse);
 route.get("/courseDisplay", checkAuth, CourseController.courseDisplay);
