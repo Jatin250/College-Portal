@@ -20,5 +20,6 @@ route.get("/courseDisplay", checkAuth, CourseController.courseDisplay);
 route.get("/ViewCourse/:id", checkAuth, CourseController.ViewCourse);
 route.get("/EditCourse/:id", checkAuth, CourseController.EditCourse);
 route.get("/DeleteCourse/:id", checkAuth, CourseController.DeleteCourse);
+route.post("/courseUpdate/:id", checkAuth, CourseController.courseUpdate);
 
 module.exports = route;

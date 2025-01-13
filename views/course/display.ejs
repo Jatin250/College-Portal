@@ -6,6 +6,11 @@
             <thead>
                 <tr class="bg-info">
                     <th colspan="6">Display Course</th>
+                    <% if(msg.length> 0){ %>
+                        <div class="alert alert-info">
+                            <%= msg %>
+                        </div>
+                        <%}%>
                 </tr>
                 <tr>
                     <th>ID</th>
