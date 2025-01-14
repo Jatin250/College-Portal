@@ -3,6 +3,7 @@ const FrontController = require("../controllers/FrontController");
 const route = express.Router();
 const checkAuth = require("../middleware/auth");
 const CourseController = require("../controllers/CourseController");
+const ContactController = require("../controllers/ContactController");
 
 // route
 route.get("/", FrontController.login);
@@ -26,5 +27,8 @@ route.get("/ViewCourse/:id", checkAuth, CourseController.ViewCourse);
 route.get("/EditCourse/:id", checkAuth, CourseController.EditCourse);
 route.get("/DeleteCourse/:id", checkAuth, CourseController.DeleteCourse);
 route.post("/courseUpdate/:id", checkAuth, CourseController.courseUpdate);
+
+// contactByUser
+route.post("/contactByUser", checkAuth, ContactController.contactByUser);
 
 module.exports = route;

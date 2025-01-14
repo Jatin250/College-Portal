@@ -31,6 +31,7 @@ class FrontController {
       console.log(error);
     }
   };
+
   static about = async (req, res) => {
     try {
       const { name, image } = req.udata;
@@ -39,6 +40,7 @@ class FrontController {
       console.log(error);
     }
   };
+
   static login = async (req, res) => {
     try {
       res.render("login", {
@@ -49,14 +51,21 @@ class FrontController {
       console.log(error);
     }
   };
+
   static contact = async (req, res) => {
     try {
       const { name, image } = req.udata;
-      res.render("contact", { n: name, i: image });
+      res.render("contact", {
+        n: name,
+        i: image,
+        msg: req.flash("success"),
+        msg1: req.flash("error"),
+      });
     } catch (error) {
       console.log(error);
     }
   };
+
   static register = async (req, res) => {
     try {
       res.render("register", { msg: req.flash("error") });
@@ -64,6 +73,7 @@ class FrontController {
       console.log(error);
     }
   };
+
   //user insert
   static userinsert = async (req, res) => {
     try {
