@@ -4,6 +4,7 @@ const route = express.Router();
 const checkAuth = require("../middleware/auth");
 const CourseController = require("../controllers/CourseController");
 const ContactController = require("../controllers/ContactController");
+const AdminController = require("../controllers/admin/AdminController");
 
 // route
 route.get("/", FrontController.login);
@@ -30,5 +31,8 @@ route.post("/courseUpdate/:id", checkAuth, CourseController.courseUpdate);
 
 // contactByUser
 route.post("/contactByUser", checkAuth, ContactController.contactByUser);
+
+// adminController
+route.get("/admin/dashboard", checkAuth, AdminController.dashboard);
 
 module.exports = route;

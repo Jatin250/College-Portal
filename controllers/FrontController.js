@@ -140,13 +140,25 @@ class FrontController {
         const isMatch = await bcrypt.compare(password, user.password);
         // console.log(isMatch)
         if (isMatch) {
-          const token = jwt.sign(
-            { ID: user.id },
-            "smjdhc7w8e2wufwoivr8934wr235w"
-          );
-          // console.log(token);
-          res.cookie("token", token);
-          return res.redirect("/home");
+          // token
+          if (user.role == "admin") {
+            const token = jwt.sign(
+              { ID: user.id },
+              "smjdhc7w8e2wufwoivr8934wr235w"
+            );
+            // console.log(token);
+            res.cookie("token", token);
+            return res.redirect("/admin/dashboard");
+          }
+          if (user.role == "student") {
+            const token = jwt.sign(
+              { ID: user.id },
+              "smjdhc7w8e2wufwoivr8934wr235w"
+            );
+            // console.log(token);
+            res.cookie("token", token);
+            return res.redirect("/home");
+          }
         } else {
           req.flash("error", "Email or Password does't Match");
           return res.redirect("/");
