@@ -165,7 +165,7 @@ class FrontController {
       const updateinfo = await UserModel.findByIdAndUpdate(req.query.id, {
         is_verify: 1,
       });
-      console.log(updateinfo);
+      // console.log(updateinfo);
       if (updateinfo) {
         let token = jwt.sign(
           { ID: updateinfo.id },
