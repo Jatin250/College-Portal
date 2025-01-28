@@ -35,7 +35,11 @@ route.post("/contactByUser", checkAuth, ContactController.contactByUser);
 // adminController
 route.get("/admin/dashboard", checkAuth, AdminController.dashboard);
 route.get("/admin/courseDisplay", checkAuth, AdminController.courseDisplay);
-route.post("/admin/update_status/:id", checkAuth, AdminController.update_status);
+route.post(
+  "/admin/update_status/:id",
+  checkAuth,
+  AdminController.update_status
+);
 
 // Forget password
 route.post("/forgot_Password", FrontController.forgetPasswordVerify);
